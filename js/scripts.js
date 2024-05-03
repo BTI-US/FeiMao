@@ -10,12 +10,27 @@ function copyAddress(event) {
     var copyInput = document.getElementById("address");
     var fullAddress = copyInput.getAttribute("data-full-address");
 
-    // Using the Clipboard API
-    navigator.clipboard.writeText(fullAddress).then(function() {
-        console.log('Address copied to clipboard successfully!');
-    }, function(err) {
-        console.error('Could not copy text: ', err);
-    });
+    if (navigator.clipboard) {
+        // Clipboard API is available
+        navigator.clipboard.writeText(fullAddress).then(function() {
+            console.log('Address copied to clipboard successfully!');
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    } else {
+        // Clipboard API is not available, use document.execCommand('copy')
+        var textarea = document.createElement('textarea');
+        textarea.value = fullAddress;
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            console.log('Address copied to clipboard successfully!');
+        } catch (err) {
+            console.error('Could not copy text: ', err);
+        }
+        document.body.removeChild(textarea);
+    }
 
     // Create and show a hint message
     var hint = document.createElement('span');
