@@ -10919,3 +10919,48 @@ header.masthead .bg-circle-4 {
     font-size: 4rem;
   }
 }
+
+.address-container {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 20px;
+  justify-content: center;
+  margin: auto;
+  background-color: #f01072;
+  border-radius: 10px;
+  margin-bottom: 15px !important;
+  max-width: 1000px;
+  margin-top: 40px;
+}
+
+.address-container input {
+  border: none;
+  margin-right: 10px;
+  flex-grow: 1;
+  background-color: #f01072;
+  color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+
+/* Handle the focus state of the input */
+.address-container input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f94929;
+}
+
+.address-container button {
+  border: none;
+  background-color: #f01072;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
+  font-size: 20px;
+}
+
+/* Optional: Style for hover state */
+.address-container button:hover {
+  background-color: #f94929;
+}
